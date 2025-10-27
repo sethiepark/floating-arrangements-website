@@ -27,14 +27,6 @@ function ImageGallery() {
       alt: "Daytime pool with beautiful lily arrangements"
     },
     {
-      src: "/images/party-artistic-pieces.jpg",
-      alt: "Party with artistic floating pieces and gold accents"
-    },
-    {
-      src: "/images/evening-wreath-arrangements.jpg",
-      alt: "Evening pool with elegant wreath arrangements"
-    },
-    {
       src: "/images/poolside-pink-roses.jpg",
       alt: "Poolside luxury setting with pink rose arrangements"
     },
@@ -192,7 +184,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/corporate-event-colorful.jpg"
+                  src="/images/evening-party-elegant.jpg"
                   alt="Event decor with floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -236,7 +228,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/party-artistic-pieces.jpg"
+                  src="/images/evening-sculpture-arrangements.jpg"
                   alt="Bespoke custom floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -304,8 +296,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Portfolio Preview Section */}
+      <section id="portfolio" className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
+            A Glimpse of Our Creations
+          </h3>
+          <ImageGallery />
+        </div>
+      </section>
+
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4 bg-white">
+      <section id="testimonials" className="py-20 px-4 bg-stone-50">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
             What Our Clients Say
@@ -353,16 +355,6 @@ export default function Home() {
               <p className="text-stone-500 text-sm">Corporate Event</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Portfolio Preview Section */}
-      <section id="portfolio" className="py-20 px-4 bg-stone-50">
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
-            A Glimpse of Our Creations
-          </h3>
-          <ImageGallery />
         </div>
       </section>
 
@@ -437,7 +429,6 @@ export default function Home() {
           <div className="mt-12 text-center space-y-2">
             <p className="text-stone-700 font-medium">Contact Information</p>
             <p className="text-stone-600">Based in San Diego, California</p>
-            <p className="text-stone-600">Serving clients nationwide</p>
           </div>
         </div>
       </section>
