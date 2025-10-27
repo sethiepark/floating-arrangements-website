@@ -23,38 +23,63 @@ function ImageGallery() {
       alt: "Poolside luxury setting with pink rose arrangements"
     },
     {
-      src: "/images/tropical-flowers.jpg",
-      alt: "Vibrant tropical flower arrangements"
+      src: "/images/evening-wreath-arrangements.jpg",
+      alt: "Evening pool with elegant wreath arrangements"
+    },
+    {
+      src: "/images/nice-event.jpg",
+      alt: "Elegant event with floating arrangements"
     }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setIsTransitioning(false);
+      }, 300);
+    }
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+        setIsTransitioning(false);
+      }, 300);
+    }
   };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    if (!isTransitioning && index !== currentIndex) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex(index);
+        setIsTransitioning(false);
+      }, 300);
+    }
   };
 
   return (
     <div className="relative">
       {/* Main Image Container */}
       <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
-        <Image
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt}
-          fill
-          className="object-cover"
-          priority
-        />
+        <div className={`absolute inset-0 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+          <Image
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
         
         {/* Navigation Arrows */}
         <button
@@ -432,7 +457,7 @@ export default function Home() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/images/Main_Logo.png"
+                  src="/images/Main_Logo_white.png"
                   alt="Floating Arrangements"
                   width={180}
                   height={90}
