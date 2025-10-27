@@ -33,6 +33,14 @@ function ImageGallery() {
     {
       src: "/images/evening-wreath-arrangements.jpg",
       alt: "Evening pool with elegant wreath arrangements"
+    },
+    {
+      src: "/images/poolside-pink-roses.jpg",
+      alt: "Poolside luxury setting with pink rose arrangements"
+    },
+    {
+      src: "/images/evening-sculpture-arrangements.jpg",
+      alt: "Evening pool with artistic sculptures and floral arrangements"
     }
   ];
 
