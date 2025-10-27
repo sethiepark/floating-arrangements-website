@@ -15,7 +15,7 @@ function ImageGallery() {
       alt: "Elegant event with floating arrangements"
     },
     {
-      src: "/images/corporate-event-colorful-cropped.jpg",
+      src: "/images/cropped-corporate-event-colorful.jpg",
       alt: "Corporate event with colorful floating arrangements"
     },
     {
@@ -27,7 +27,7 @@ function ImageGallery() {
       alt: "Poolside luxury setting with pink rose arrangements"
     },
     {
-      src: "/images/evening-wreath-arrangements-cropped.jpg",
+      src: "/images/cropped-evening-wreath-arrangements.jpg",
       alt: "Evening pool with elegant wreath arrangements"
     },
     {
