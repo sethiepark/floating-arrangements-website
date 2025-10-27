@@ -1,4 +1,114 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+// Gallery component
+function ImageGallery() {
+  const images = [
+    {
+      src: "/images/wedding-rose-arrangement.jpg",
+      alt: "Wedding ceremony with floating rose arrangement in pool"
+    },
+    {
+      src: "/images/modern-home-pool.jpg",
+      alt: "Modern home pool with artistic floating arrangements"
+    },
+    {
+      src: "/images/corporate-event-colorful.jpg",
+      alt: "Corporate event with colorful floating arrangements"
+    },
+    {
+      src: "/images/evening-party-elegant.jpg",
+      alt: "Evening party with elegant floating centerpieces"
+    },
+    {
+      src: "/images/daytime-lily-arrangements.jpg",
+      alt: "Daytime pool with beautiful lily arrangements"
+    },
+    {
+      src: "/images/party-artistic-pieces.jpg",
+      alt: "Party with artistic floating pieces and gold accents"
+    },
+    {
+      src: "/images/evening-wreath-arrangements.jpg",
+      alt: "Evening pool with elegant wreath arrangements"
+    }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <div className="relative">
+      {/* Main Image Container */}
+      <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
+        <Image
+          src={images[currentIndex].src}
+          alt={images[currentIndex].alt}
+          fill
+          className="object-cover"
+          priority
+        />
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={goToPrevious}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-lg transition z-10"
+          aria-label="Previous image"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-lg transition z-10"
+          aria-label="Next image"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex justify-center gap-2 mt-6">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`h-3 rounded-full transition ${
+              index === currentIndex
+                ? "bg-amber-700 w-8"
+                : "bg-stone-300 hover:bg-stone-400 w-3"
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Image Counter */}
+      <div className="text-center mt-4 text-stone-600">
+        {currentIndex + 1} / {images.length}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -7,9 +117,16 @@ export default function Home() {
       <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <h1 className="text-2xl sm:text-3xl font-serif text-stone-800">
-              Floating Arrangements
-            </h1>
+            <a href="#" className="flex items-center">
+              <Image
+                src="/images/Main_Logo.png"
+                alt="Floating Arrangements - Elevate Your Waterscape"
+                width={200}
+                height={60}
+                className="h-16 w-auto"
+                priority
+              />
+            </a>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-stone-600 hover:text-stone-900 transition">Services</a>
               <a href="#portfolio" className="text-stone-600 hover:text-stone-900 transition">Portfolio</a>
@@ -24,8 +141,8 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-event.jpg"
-            alt="Elegant evening event with floating arrangements"
+            src="/images/hero-party-artistic.jpg"
+            alt="Elegant event with floating arrangements and artistic pieces"
             fill
             className="object-cover"
             priority
@@ -67,7 +184,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/tropical-flowers.jpg"
+                  src="/images/corporate-event-colorful.jpg"
                   alt="Event decor with floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -89,7 +206,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/hero-white-roses.jpg"
+                  src="/images/modern-home-pool.jpg"
                   alt="Home and garden floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -111,7 +228,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/succulent-arrangement.png"
+                  src="/images/party-artistic-pieces.jpg"
                   alt="Bespoke custom floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -145,7 +262,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h4 className="text-xl font-serif mb-3 text-stone-800">Event Decor</h4>
+              <h4 className="text-xl font-serif mb-3 text-stone-800">Expert Craftsmanship</h4>
               <p className="text-stone-600 leading-relaxed">
                 Each arrangement is meticulously designed and handcrafted by expert florists and artisans,
                 ensuring breathtaking beauty and durability.
@@ -233,52 +350,11 @@ export default function Home() {
 
       {/* Portfolio Preview Section */}
       <section id="portfolio" className="py-20 px-4 bg-stone-50">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
             A Glimpse of Our Creations
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition group">
-              <Image
-                src="/images/hero-white-roses.jpg"
-                alt="White roses floating in pool"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-            </div>
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition group">
-              <Image
-                src="/images/tropical-flowers.jpg"
-                alt="Tropical flower arrangements"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-            </div>
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition group">
-              <Image
-                src="/images/floating-fire.jpg"
-                alt="Floating fire bowls"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-            </div>
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition group">
-              <Image
-                src="/images/succulent-arrangement.png"
-                alt="Succulent arrangements"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <a
-              href="#contact"
-              className="inline-block bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
-            >
-              View Full Portfolio
-            </a>
-          </div>
+          <ImageGallery />
         </div>
       </section>
 
@@ -363,7 +439,15 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h2 className="text-2xl font-serif mb-4">Floating Arrangements</h2>
+              <div className="mb-4">
+                <Image
+                  src="/images/Main_Logo.png"
+                  alt="Floating Arrangements"
+                  width={180}
+                  height={54}
+                  className="h-14 w-auto brightness-0 invert"
+                />
+              </div>
               <p className="text-stone-300 leading-relaxed">
                 Transforming water features into artistic focal points with sustainable,
                 floating floral designs and art pieces.
