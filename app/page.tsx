@@ -11,16 +11,8 @@ function ImageGallery() {
       alt: "Wedding ceremony with floating rose arrangement in pool"
     },
     {
-      src: "/images/modern-home-pool.jpg",
-      alt: "Modern home pool with artistic floating arrangements"
-    },
-    {
       src: "/images/corporate-event-colorful.jpg",
       alt: "Corporate event with colorful floating arrangements"
-    },
-    {
-      src: "/images/evening-party-elegant.jpg",
-      alt: "Evening party with elegant floating centerpieces"
     },
     {
       src: "/images/daytime-lily-arrangements.jpg",
@@ -31,8 +23,8 @@ function ImageGallery() {
       alt: "Poolside luxury setting with pink rose arrangements"
     },
     {
-      src: "/images/evening-sculpture-arrangements.jpg",
-      alt: "Evening pool with artistic sculptures and floral arrangements"
+      src: "/images/tropical-flowers.jpg",
+      alt: "Vibrant tropical flower arrangements"
     }
   ];
 
