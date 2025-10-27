@@ -125,6 +125,8 @@ function ImageGallery() {
 }
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Navigation */}
@@ -141,13 +143,66 @@ export default function Home() {
                 priority
               />
             </a>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-stone-600 hover:text-stone-900 transition">Services</a>
               <a href="#portfolio" className="text-stone-600 hover:text-stone-900 transition">Portfolio</a>
               <a href="#testimonials" className="text-stone-600 hover:text-stone-900 transition">Testimonials</a>
               <a href="#contact" className="text-stone-600 hover:text-stone-900 transition">Contact</a>
             </div>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 text-stone-600 hover:text-stone-900 transition"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="md:hidden pb-4">
+              <div className="flex flex-col space-y-3">
+                <a 
+                  href="#services" 
+                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Services
+                </a>
+                <a 
+                  href="#portfolio" 
+                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Portfolio
+                </a>
+                <a 
+                  href="#testimonials" 
+                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Testimonials
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
