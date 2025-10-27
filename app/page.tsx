@@ -11,6 +11,10 @@ function ImageGallery() {
       alt: "Wedding ceremony with floating rose arrangement in pool"
     },
     {
+      src: "/images/nice-event.jpg",
+      alt: "Elegant event with floating arrangements"
+    },
+    {
       src: "/images/corporate-event-colorful.jpg",
       alt: "Corporate event with colorful floating arrangements"
     },
@@ -27,8 +31,8 @@ function ImageGallery() {
       alt: "Evening pool with elegant wreath arrangements"
     },
     {
-      src: "/images/nice-event.jpg",
-      alt: "Elegant event with floating arrangements"
+      src: "/images/rose-halo-party.jpg",
+      alt: "Party with rose halo floating arrangement"
     }
   ];
 
@@ -77,6 +81,7 @@ function ImageGallery() {
             alt={images[currentIndex].alt}
             fill
             className="object-cover"
+            style={{ objectPosition: 'center center' }}
             priority
           />
         </div>
@@ -133,14 +138,14 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-24">
             <a href="#" className="flex items-center">
               <Image
                 src="/images/Main_Logo.png"
                 alt="Floating Arrangements - Elevate Your Waterscape"
-                width={200}
-                height={60}
-                className="h-16 w-auto"
+                width={280}
+                height={84}
+                className="h-20 w-auto"
                 priority
               />
             </a>
@@ -459,9 +464,9 @@ export default function Home() {
                 <Image
                   src="/images/Main_Logo_white.png"
                   alt="Floating Arrangements"
-                  width={180}
-                  height={90}
-                  className="h-14 w-auto"
+                  width={240}
+                  height={120}
+                  className="h-20 w-auto"
                 />
               </div>
               <p className="text-stone-300 leading-relaxed">
