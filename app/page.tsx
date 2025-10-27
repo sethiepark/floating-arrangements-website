@@ -435,8 +435,8 @@ export default function Home() {
                   src="/images/Main_Logo.png"
                   alt="Floating Arrangements"
                   width={180}
-                  height={54}
-                  className="h-14 w-auto brightness-0 invert"
+                  height={90}
+                  className="h-14 w-auto"
                 />
               </div>
               <p className="text-stone-300 leading-relaxed">
