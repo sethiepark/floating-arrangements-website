@@ -210,8 +210,8 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-party-artistic.jpg"
-            alt="Elegant event with floating arrangements and artistic pieces"
+            src="/images/evening-party-elegant.jpg"
+            alt="Elegant evening event with floating arrangements"
             fill
             className="object-cover"
             priority
@@ -253,8 +253,8 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/evening-party-elegant.jpg"
-                  alt="Event decor with floating arrangements"
+                  src="/images/party-artistic-pieces.jpg"
+                  alt="Event decor with floating arrangements and artistic pieces"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
                 />
