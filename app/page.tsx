@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // Gallery component
 function ImageGallery() {
@@ -130,19 +130,6 @@ function ImageGallery() {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
-
-  // Check if user was redirected back after successful form submission
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('success') === 'true') {
-        setShowThankYou(true);
-        // Clean up the URL
-        window.history.replaceState({}, '', window.location.pathname);
-      }
-    }
-  }, []);
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -459,8 +446,7 @@ export default function Home() {
               method="POST"
               className="space-y-6"
             >
-              {/* Hidden field to redirect back to website after submission */}
-              <input type="hidden" name="_next" value="https://floatingarrangements.com?success=true" />
+              {/* Hidden field for better email subject */}
               <input type="hidden" name="_subject" value="New Contact Form Inquiry - Floating Arrangements" />
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -594,58 +580,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      {/* Thank You Modal */}
-      {showThankYou && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg shadow-2xl max-w-md w-full p-8 relative animate-fade-in">
-            {/* Close button */}
-            <button
-              onClick={() => setShowThankYou(false)}
-              className="absolute top-4 right-4 text-stone-400 hover:text-stone-600 transition"
-              aria-label="Close"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Success icon */}
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-
-            {/* Message */}
-            <h3 className="text-3xl font-serif text-center mb-4 text-stone-800">
-              Thank You!
-            </h3>
-            <p className="text-center text-stone-600 mb-6 leading-relaxed">
-              We've received your inquiry and are excited to bring your floating arrangement vision to life! 
-              Our team will review your request and get back to you within 24 hours at the email you provided.
-            </p>
-            
-            {/* Additional info */}
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-amber-900 text-center">
-                <strong>Questions?</strong> You can also reach us directly at<br />
-                <a href="mailto:orders@floatingarrangements.com" className="text-amber-700 hover:text-amber-800 font-medium">
-                  orders@floatingarrangements.com
-                </a>
-              </p>
-            </div>
-
-            {/* Close button */}
-            <button
-              onClick={() => setShowThankYou(false)}
-              className="w-full bg-amber-700 text-white px-8 py-3 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
-            >
-              Continue Browsing
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
