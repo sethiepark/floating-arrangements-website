@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Gallery component
 function ImageGallery() {
@@ -131,10 +131,9 @@ function ImageGallery() {
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
-  const [formError, setFormError] = useState(false);
 
   // Check if user was redirected back after successful form submission
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('success') === 'true') {
@@ -143,7 +142,7 @@ export default function Home() {
         window.history.replaceState({}, '', window.location.pathname);
       }
     }
-  });
+  }, []);
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -520,14 +519,6 @@ export default function Home() {
                   placeholder="Tell us about your vision..."
                 ></textarea>
               </div>
-
-              {/* Error Message */}
-              {formError && (
-                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded">
-                  <p className="font-medium">Oops! Something went wrong.</p>
-                  <p className="text-sm">Please try again or email us directly at orders@floatingarrangements.com</p>
-                </div>
-              )}
 
               <button
                 type="submit"
