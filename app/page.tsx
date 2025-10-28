@@ -130,38 +130,20 @@ function ImageGallery() {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [showThankYou, setShowThankYou] = useState(false);
+  const [formError, setFormError] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xkgp1lbo', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setFormStatus('success');
+  // Check if user was redirected back after successful form submission
+  useState(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
         setShowThankYou(true);
-        form.reset();
-        // Reset success message after 5 seconds
-        setTimeout(() => setFormStatus('idle'), 5000);
-      } else {
-        setFormStatus('error');
+        // Clean up the URL
+        window.history.replaceState({}, '', window.location.pathname);
       }
-    } catch (error) {
-      setFormStatus('error');
     }
-  };
+  });
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -473,7 +455,15 @@ export default function Home() {
             Contact us today for a personalized consultation and let us bring your floating vision to life.
           </p>
           <div className="bg-stone-50 rounded-lg p-8 shadow-lg border border-stone-200">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              action="https://formspree.io/f/xkgpjlbo" 
+              method="POST"
+              className="space-y-6"
+            >
+              {/* Hidden field to redirect back to website after submission */}
+              <input type="hidden" name="_next" value="https://floatingarrangements.com?success=true" />
+              <input type="hidden" name="_subject" value="New Contact Form Inquiry - Floating Arrangements" />
+              
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-stone-700 mb-2">
@@ -532,7 +522,7 @@ export default function Home() {
               </div>
 
               {/* Error Message */}
-              {formStatus === 'error' && (
+              {formError && (
                 <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded">
                   <p className="font-medium">Oops! Something went wrong.</p>
                   <p className="text-sm">Please try again or email us directly at orders@floatingarrangements.com</p>
@@ -541,10 +531,9 @@ export default function Home() {
 
               <button
                 type="submit"
-                disabled={formStatus === 'submitting'}
-                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg disabled:bg-amber-400 disabled:cursor-not-allowed"
+                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
               >
-                {formStatus === 'submitting' ? 'Sending...' : 'Send Inquiry'}
+                Send Inquiry
               </button>
             </form>
           </div>
