@@ -130,6 +130,36 @@ function ImageGallery() {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xkgp1lbo', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+        // Reset success message after 5 seconds
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -441,7 +471,7 @@ export default function Home() {
             Contact us today for a personalized consultation and let us bring your floating vision to life.
           </p>
           <div className="bg-stone-50 rounded-lg p-8 shadow-lg border border-stone-200">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-stone-700 mb-2">
@@ -450,6 +480,8 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="Your name"
                   />
@@ -461,6 +493,8 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="your@email.com"
                   />
@@ -472,6 +506,7 @@ export default function Home() {
                 </label>
                 <select
                   id="inquiryType"
+                  name="inquiryType"
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                 >
                   <option>Event Decor</option>
@@ -486,16 +521,36 @@ export default function Home() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
+                  required
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                   placeholder="Tell us about your vision..."
                 ></textarea>
               </div>
+
+              {/* Success Message */}
+              {formStatus === 'success' && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded">
+                  <p className="font-medium">Thank you for your inquiry!</p>
+                  <p className="text-sm">We'll get back to you at orders@floatingarrangements.com soon.</p>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {formStatus === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded">
+                  <p className="font-medium">Oops! Something went wrong.</p>
+                  <p className="text-sm">Please try again or email us directly at orders@floatingarrangements.com</p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
+                disabled={formStatus === 'submitting'}
+                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg disabled:bg-amber-400 disabled:cursor-not-allowed"
               >
-                Send Inquiry
+                {formStatus === 'submitting' ? 'Sending...' : 'Send Inquiry'}
               </button>
             </form>
           </div>
