@@ -141,9 +141,9 @@ export default function Home() {
               <Image
                 src="/images/Main_Logo.png"
                 alt="Floating Arrangements - Elevate Your Waterscape"
-                width={280}
-                height={84}
-                className="h-20 w-auto"
+                width={308}
+                height={92}
+                className="h-22 w-auto"
                 priority
               />
             </a>
@@ -515,9 +515,9 @@ export default function Home() {
                 <Image
                   src="/images/Main_Logo_white.png"
                   alt="Floating Arrangements"
-                  width={240}
-                  height={120}
-                  className="h-20 w-auto"
+                  width={324}
+                  height={162}
+                  className="h-27 w-auto"
                 />
               </div>
               <p className="text-stone-300 leading-relaxed">
