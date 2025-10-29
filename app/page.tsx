@@ -188,9 +188,9 @@ export default function Home() {
               <Image
                 src="/images/Main_Logo.png"
                 alt="Floating Arrangements - Elevate Your Waterscape"
-                width={308}
-                height={92}
-                className="h-22 w-auto"
+                width={1440}
+                height={720}
+                className="h-24 w-auto"
                 priority
               />
             </a>
