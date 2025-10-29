@@ -130,6 +130,53 @@ function ImageGallery() {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    inquiryType: 'Event Decor',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xkgpjlbo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        // Clear the form
+        setFormData({
+          name: '',
+          email: '',
+          inquiryType: 'Event Decor',
+          message: ''
+        });
+        alert('Thank you for your inquiry! We will get back to you soon.');
+      } else {
+        alert('There was an error sending your message. Please try again.');
+      }
+    } catch (error) {
+      alert('There was an error sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -442,8 +489,7 @@ export default function Home() {
           </p>
           <div className="bg-stone-50 rounded-lg p-8 shadow-lg border border-stone-200">
             <form 
-              action="https://formspree.io/f/xkgpjlbo" 
-              method="POST"
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
               {/* Hidden field for better email subject */}
@@ -458,6 +504,8 @@ export default function Home() {
                     type="text"
                     id="name"
                     name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="Your name"
@@ -471,6 +519,8 @@ export default function Home() {
                     type="email"
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="your@email.com"
@@ -484,6 +534,8 @@ export default function Home() {
                 <select
                   id="inquiryType"
                   name="inquiryType"
+                  value={formData.inquiryType}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                 >
                   <option>Event Decor</option>
@@ -500,6 +552,8 @@ export default function Home() {
                   id="message"
                   name="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                   placeholder="Tell us about your vision..."
@@ -508,9 +562,10 @@ export default function Home() {
 
               <button
                 type="submit"
-                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
+                disabled={isSubmitting}
+                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg disabled:bg-amber-400 disabled:cursor-not-allowed"
               >
-                Send Inquiry
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
               </button>
             </form>
           </div>
