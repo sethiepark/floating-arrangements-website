@@ -38,32 +38,26 @@ function ImageGallery() {
   const goToNext = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setIsTransitioning(false);
-      }, 300);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setTimeout(() => setIsTransitioning(false), 500);
     }
   };
 
   const goToPrevious = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-        setIsTransitioning(false);
-      }, 300);
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+      setTimeout(() => setIsTransitioning(false), 500);
     }
   };
 
   const goToSlide = (index: number) => {
     if (!isTransitioning && index !== currentIndex) {
       setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex(index);
-        setIsTransitioning(false);
-      }, 300);
+      setCurrentIndex(index);
+      setTimeout(() => setIsTransitioning(false), 500);
     }
   };
 
@@ -71,7 +65,7 @@ function ImageGallery() {
     <div className="relative">
       {/* Main Image Container */}
       <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
-        <div className={`absolute inset-0 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
