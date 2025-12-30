@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import ClickSpark from "./ClickSpark";
-import Aurora from "./Aurora";
 
 // Gallery component
 function ImageGallery() {
@@ -175,15 +173,7 @@ export default function Home() {
   };
 
   return (
-    <ClickSpark
-      sparkColor='#d97706'
-      sparkSize={12}
-      sparkRadius={20}
-      sparkCount={8}
-      duration={500}
-      easing='ease-out'
-    >
-      <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50">
       {/* Navigation */}
       <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -263,18 +253,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Aurora
-          colorStops={["#d97706", "#f59e0b", "#dc2626"]}
-          blend={0.5}
-          amplitude={1.2}
-          speed={0.5}
-        />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-event.jpg"
             alt="Elegant event with floating arrangements"
             fill
-            className="object-cover opacity-40"
+            className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
@@ -690,7 +674,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      </div>
-    </ClickSpark>
+    </div>
   );
 }
