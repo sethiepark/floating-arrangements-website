@@ -166,6 +166,7 @@ export default function Home() {
         alert('There was an error sending your message. Please try again.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       alert('There was an error sending your message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -271,7 +272,7 @@ export default function Home() {
             Transform Your Celebration Into<br />an Unforgettable Masterpiece
           </h2>
           <p className="text-lg sm:text-xl mb-10 max-w-3xl mx-auto font-light tracking-wide leading-relaxed">
-            Premiere atelier specializing in exquisite floating installations for the world's most distinguished celebrations and private estates
+            Premiere atelier specializing in exquisite floating installations for the world&apos;s most distinguished celebrations and private estates
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -500,7 +501,7 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-stone-700 mb-6 italic leading-relaxed text-lg">
-                &ldquo;Impeccable artistry, flawless execution, and simply stunning results. The team's attention to detail 
+                &ldquo;Impeccable artistry, flawless execution, and simply stunning results. The team&apos;s attention to detail 
                 and commitment to perfection exceeded every expectation.&rdquo;
               </p>
               <p className="text-stone-900 font-semibold">Robert Chen</p>
@@ -518,7 +519,7 @@ export default function Home() {
             Begin Your Journey
           </div>
           <h3 className="text-4xl sm:text-5xl font-serif text-center mb-6 text-stone-800">
-            Let's Create Something Extraordinary
+            Let&apos;s Create Something Extraordinary
           </h3>
           <p className="text-center text-stone-600 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
             Schedule a private consultation to discuss your vision. Our team will work closely with you 
@@ -609,7 +610,7 @@ export default function Home() {
           <div className="mt-12 text-center space-y-3">
             <p className="text-stone-700 font-medium text-lg">Contact Information</p>
             <p className="text-stone-600">San Diego, California</p>
-            <p className="text-sm text-amber-700 tracking-wide">★ Serving Southern California's Premier Venues & Estates ★</p>
+            <p className="text-sm text-amber-700 tracking-wide">★ Serving Southern California&apos;s Premier Venues & Estates ★</p>
             <p className="text-xs text-stone-500 mt-4">Limited availability • Advance booking recommended</p>
           </div>
         </div>
