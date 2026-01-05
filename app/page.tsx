@@ -185,7 +185,7 @@ export default function Home() {
                 alt="Floating Arrangements - Elevate Your Waterscape"
                 width={1440}
                 height={720}
-                className="h-24 w-auto"
+                className="h-28 w-auto"
                 priority
               />
             </a>
