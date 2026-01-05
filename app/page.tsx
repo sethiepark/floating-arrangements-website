@@ -265,47 +265,35 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <div className="mb-4 text-sm tracking-[0.3em] uppercase text-amber-200 font-light">
-            Bespoke Floral Artistry
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-serif mb-6 leading-tight tracking-tight">
-            Transform Your Celebration Into<br />an Unforgettable Masterpiece
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
+            Elevate Your Event with Exquisite<br />Floating Arrangements
           </h2>
-          <p className="text-lg sm:text-xl mb-10 max-w-3xl mx-auto font-light tracking-wide leading-relaxed">
-            Premiere atelier specializing in exquisite floating installations for the world&apos;s most distinguished celebrations and private estates
+          <p className="text-lg sm:text-xl mb-10 max-w-3xl mx-auto font-light tracking-wide">
+            Specializing in stunning floral and artistic installations for pools, ponds, and water features
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#portfolio"
-              className="inline-block bg-gradient-to-r from-amber-600 to-amber-700 text-white px-10 py-4 rounded text-lg font-medium hover:from-amber-700 hover:to-amber-800 transition shadow-2xl transform hover:scale-105 duration-300"
+              className="inline-block bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
             >
-              View Our Portfolio
+              Explore Our Designs
             </a>
             <a
               href="#contact"
-              className="inline-block bg-white/95 text-stone-900 px-10 py-4 rounded text-lg font-medium hover:bg-white transition shadow-2xl border border-amber-200/30 transform hover:scale-105 duration-300"
+              className="inline-block bg-white/95 text-stone-800 px-8 py-4 rounded text-lg font-medium hover:bg-white transition shadow-lg"
             >
-              Schedule Private Consultation
+              Request a Consultation
             </a>
-          </div>
-          <div className="mt-12 text-amber-100/90 text-sm tracking-wider">
-            ★ Serving Discerning Clients Since 2020 ★
           </div>
         </div>
       </section>
 
       {/* Signature Experiences Section */}
-      <section id="services" className="py-24 px-4 bg-white">
+      <section id="services" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-6 text-sm tracking-[0.3em] uppercase text-amber-700 font-light">
-            Our Signature Collections
-          </div>
-          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-6 text-stone-800">
-            Curated Floating Experiences
+          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
+            Our Signature Floating Experiences
           </h3>
-          <p className="text-center text-stone-600 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-            Each installation is meticulously designed and handcrafted to transform your waterscape into an unforgettable work of art
-          </p>
           <div className="grid md:grid-cols-3 gap-10">
             {/* Event Decor */}
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
@@ -318,16 +306,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-8">
-                <h4 className="text-2xl font-serif mb-4 text-stone-800">Premier Events</h4>
+                <h4 className="text-2xl font-serif mb-4 text-stone-800">Event Decor</h4>
                 <p className="text-stone-600 mb-6 leading-relaxed">
-                  Elevate weddings, galas, and corporate celebrations with our bespoke floating centerpieces. 
-                  Each design is custom-crafted to reflect your unique vision and create an atmosphere of refined elegance.
+                  Weddings, private parties, corporate events – make a statement with our custom-designed
+                  floral and artistic floating centerpieces. We create the perfect ambiance for any occasion.
                 </p>
-                <a href="#portfolio" className="text-amber-700 font-medium hover:text-amber-800 transition inline-flex items-center gap-2">
-                  View Event Gallery 
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <a href="#portfolio" className="text-amber-700 font-medium hover:text-amber-800 transition">
+                  View Event Gallery →
                 </a>
               </div>
             </div>
@@ -343,16 +328,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-8">
-                <h4 className="text-2xl font-serif mb-4 text-stone-800">Estate & Residence</h4>
+                <h4 className="text-2xl font-serif mb-4 text-stone-800">Home & Garden</h4>
                 <p className="text-stone-600 mb-6 leading-relaxed">
-                  Transform your private oasis with our signature floating installations. 
-                  Meticulously curated designs that bring timeless beauty and sophistication to your pool, pond, or water feature.
+                  Enhance your backyard oasis, pond, or water feature with our elegant and low-maintenance
+                  floating decor. Enjoy year-round beauty and tranquility.
                 </p>
-                <a href="#portfolio" className="text-amber-700 font-medium hover:text-amber-800 transition inline-flex items-center gap-2">
-                  Discover Collections
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <a href="#portfolio" className="text-amber-700 font-medium hover:text-amber-800 transition">
+                  Discover Home Collections →
                 </a>
               </div>
             </div>
@@ -368,16 +350,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-8">
-                <h4 className="text-2xl font-serif mb-4 text-stone-800">Bespoke Couture</h4>
+                <h4 className="text-2xl font-serif mb-4 text-stone-800">Seasonal & Bespoke</h4>
                 <p className="text-stone-600 mb-6 leading-relaxed">
-                  Commission an exclusive, one-of-a-kind masterpiece. Our artisans work intimately with you 
-                  to bring your most ambitious vision to life with unparalleled craftsmanship and attention to detail.
+                  Looking for something truly unique? Our bespoke design service brings your vision to life,
+                  crafting one-of-a-kind installations for any theme or season.
                 </p>
-                <a href="#contact" className="text-amber-700 font-medium hover:text-amber-800 transition inline-flex items-center gap-2">
-                  Begin Your Journey
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <a href="#contact" className="text-amber-700 font-medium hover:text-amber-800 transition">
+                  Get a Custom Quote →
                 </a>
               </div>
             </div>
@@ -386,52 +365,46 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-stone-50 to-white">
+      <section className="py-20 px-4 bg-stone-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-6 text-sm tracking-[0.3em] uppercase text-amber-700 font-light">
-            The Floating Arrangements Difference
-          </div>
-          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-6 text-stone-800">
-            Uncompromising Excellence
+          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
+            Experience the Art of Waterborne Beauty
           </h3>
-          <p className="text-center text-stone-600 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-            Every detail matters when creating moments that will be remembered for a lifetime
-          </p>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center shadow-lg">
-                <svg className="w-10 h-10 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+              <div className="w-16 h-16 mx-auto mb-6 bg-amber-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h4 className="text-xl font-serif mb-3 text-stone-800">Artisan Craftsmanship</h4>
+              <h4 className="text-xl font-serif mb-3 text-stone-800">Expert Craftsmanship</h4>
               <p className="text-stone-600 leading-relaxed">
-                Each arrangement is a testament to exceptional skill and artistry. Our master florists hand-select 
-                premium materials and craft every element with meticulous precision.
+                Each arrangement is meticulously designed and handcrafted by expert florists and artisans,
+                ensuring breathtaking beauty and durability.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center shadow-lg">
-                <svg className="w-10 h-10 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              <div className="w-16 h-16 mx-auto mb-6 bg-amber-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
               </div>
-              <h4 className="text-xl font-serif mb-3 text-stone-800">White-Glove Service</h4>
+              <h4 className="text-xl font-serif mb-3 text-stone-800">Seamless Execution</h4>
               <p className="text-stone-600 leading-relaxed">
-                From initial consultation to final installation, experience flawless execution. Our dedicated team 
-                orchestrates every detail, ensuring a seamless and stress-free experience.
+                From concept to installation, our dedicated team handles every detail, providing a stress-free
+                and spectacular experience for your event or property.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center shadow-lg">
-                <svg className="w-10 h-10 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <div className="w-16 h-16 mx-auto mb-6 bg-amber-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-serif mb-3 text-stone-800">Exclusive Designs</h4>
+              <h4 className="text-xl font-serif mb-3 text-stone-800">Personalized Service</h4>
               <p className="text-stone-600 leading-relaxed">
-                Your vision deserves to be singular. Every installation is uniquely created for you—never replicated, 
-                always extraordinary, eternally memorable.
+                Your vision is our inspiration. We work closely with you to create arrangements that perfectly
+                reflect your style and event&apos;s theme.
               </p>
             </div>
           </div>
@@ -439,91 +412,75 @@ export default function Home() {
       </section>
 
       {/* Portfolio Preview Section */}
-      <section id="portfolio" className="py-24 px-4 bg-white">
+      <section id="portfolio" className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6 text-sm tracking-[0.3em] uppercase text-amber-700 font-light">
-            Our Portfolio
-          </div>
-          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-6 text-stone-800">
-            Recent Masterpieces
+          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
+            A Glimpse of Our Creations
           </h3>
-          <p className="text-center text-stone-600 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-            Each creation tells a unique story of elegance, artistry, and unforgettable moments
-          </p>
           <ImageGallery />
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 px-4 bg-gradient-to-b from-stone-50 to-white">
+      <section id="testimonials" className="py-20 px-4 bg-stone-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-6 text-sm tracking-[0.3em] uppercase text-amber-700 font-light">
-            Client Testimonials
-          </div>
           <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
-            Celebrated by Our Clients
+            What Our Clients Say
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-stone-100">
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
               <div className="mb-4">
-                <svg className="w-10 h-10 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <p className="text-stone-700 mb-6 italic leading-relaxed text-lg">
-                &ldquo;Floating Arrangements transformed our wedding into an absolute fairytale. The artistry was breathtaking, 
-                and every guest was captivated by the beauty. Simply extraordinary.&rdquo;
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Floating Arrangements transformed our wedding reception into a fairytale! The pool was absolutely stunning.
+                Every guest was in awe.&rdquo;
               </p>
-              <p className="text-stone-900 font-semibold">Sarah & Michael Thompson</p>
-              <p className="text-amber-700 text-sm font-medium">The Grand Del Mar</p>
-              <p className="text-stone-500 text-sm">San Diego, CA</p>
+              <p className="text-stone-900 font-medium">— Sarah & Michael</p>
+              <p className="text-stone-500 text-sm">Wedding Reception</p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-stone-100">
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
               <div className="mb-4">
-                <svg className="w-10 h-10 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <p className="text-stone-700 mb-6 italic leading-relaxed text-lg">
-                &ldquo;Our annual gala has never looked so spectacular. The floating installations were the epitome of elegance 
-                and sophistication. An absolute masterclass in luxury design.&rdquo;
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Our annual garden party has never looked so elegant. The floating florals were the talk of the evening.
+                Simply exquisite!&rdquo;
               </p>
-              <p className="text-stone-900 font-semibold">Jennifer Ashford</p>
-              <p className="text-amber-700 text-sm font-medium">Private Estate</p>
-              <p className="text-stone-500 text-sm">Rancho Santa Fe, CA</p>
+              <p className="text-stone-900 font-medium">— Jennifer Thompson</p>
+              <p className="text-stone-500 text-sm">Private Event</p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-stone-100">
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
               <div className="mb-4">
-                <svg className="w-10 h-10 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <p className="text-stone-700 mb-6 italic leading-relaxed text-lg">
-                &ldquo;Impeccable artistry, flawless execution, and simply stunning results. The team&apos;s attention to detail 
-                and commitment to perfection exceeded every expectation.&rdquo;
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Professional, creative, and utterly beautiful. Highly recommend for anyone looking to add that &lsquo;wow&rsquo; factor
+                to their event.&rdquo;
               </p>
-              <p className="text-stone-900 font-semibold">Robert Chen</p>
-              <p className="text-amber-700 text-sm font-medium">Corporate Event</p>
-              <p className="text-stone-500 text-sm">La Jolla, CA</p>
+              <p className="text-stone-900 font-medium">— Robert Chen</p>
+              <p className="text-stone-500 text-sm">Corporate Event</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-4 bg-white">
+      <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-6 text-sm tracking-[0.3em] uppercase text-amber-700 font-light">
-            Begin Your Journey
-          </div>
           <h3 className="text-4xl sm:text-5xl font-serif text-center mb-6 text-stone-800">
-            Let&apos;s Create Something Extraordinary
+            Ready to Create Something Beautiful?
           </h3>
-          <p className="text-center text-stone-600 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            Schedule a private consultation to discuss your vision. Our team will work closely with you 
-            to craft a bespoke floating masterpiece that exceeds your expectations.
+          <p className="text-center text-stone-600 text-lg mb-12 max-w-2xl mx-auto">
+            Contact us today for a personalized consultation and let us bring your floating vision to life.
           </p>
           <div className="bg-stone-50 rounded-lg p-8 shadow-lg border border-stone-200">
             <form 
@@ -601,17 +558,15 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-amber-600 to-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:from-amber-700 hover:to-amber-800 transition shadow-2xl disabled:from-amber-400 disabled:to-amber-400 disabled:cursor-not-allowed transform hover:scale-[1.02] duration-300"
+                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg disabled:bg-amber-400 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Submitting...' : 'Request Private Consultation'}
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
               </button>
             </form>
           </div>
-          <div className="mt-12 text-center space-y-3">
-            <p className="text-stone-700 font-medium text-lg">Contact Information</p>
-            <p className="text-stone-600">San Diego, California</p>
-            <p className="text-sm text-amber-700 tracking-wide">★ Serving Southern California&apos;s Premier Venues & Estates ★</p>
-            <p className="text-xs text-stone-500 mt-4">Limited availability • Advance booking recommended</p>
+          <div className="mt-12 text-center space-y-2">
+            <p className="text-stone-700 font-medium">Contact Information</p>
+            <p className="text-stone-600">Based in San Diego, California</p>
           </div>
         </div>
       </section>
