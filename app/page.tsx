@@ -182,7 +182,7 @@ export default function Home() {
             <a href="#" className="flex items-center">
               <Image
                 src="/images/Cropped_Main_Logo_High_Res.png"
-                alt="Floating Arrangements - Elevate Your Waterscape"
+                alt="Floating Arrangements"
                 width={1440}
                 height={720}
                 className="h-28 w-auto"
