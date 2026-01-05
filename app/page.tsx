@@ -181,7 +181,7 @@ export default function Home() {
           <div className="flex justify-between items-center h-32">
             <a href="#" className="flex items-center">
               <Image
-                src="/images/Main_Logo.png"
+                src="/images/Cropped_Main_Logo_High_Res.png"
                 alt="Floating Arrangements - Elevate Your Waterscape"
                 width={1440}
                 height={720}
