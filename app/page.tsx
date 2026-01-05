@@ -176,7 +176,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Navigation */}
-      <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
+      <nav className="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-32">
             <a href="#" className="flex items-center">
