@@ -185,7 +185,7 @@ export default function Home() {
                 alt="Floating Arrangements"
                 width={1440}
                 height={720}
-                className="h-28 w-auto"
+                className="h-20 md:h-28 w-auto"
                 priority
               />
             </a>
