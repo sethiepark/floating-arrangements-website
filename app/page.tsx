@@ -27,7 +27,7 @@ function ImageGallery() {
       alt: "Party with rose halo floating arrangement"
     },
     {
-      src: "/images/wedding nice.jpg",
+      src: "/images/wedding nice.png",
       alt: "Beautiful wedding with floating arrangements"
     }
   ];
