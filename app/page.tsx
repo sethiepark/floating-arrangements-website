@@ -15,10 +15,6 @@ function ImageGallery() {
       alt: "Elegant event with floating arrangements"
     },
     {
-      src: "/images/cropped-corporate-event-colorful.jpg",
-      alt: "Corporate event with colorful floating arrangements"
-    },
-    {
       src: "/images/daytime-lily-arrangements.jpg",
       alt: "Daytime pool with beautiful lily arrangements"
     },
@@ -27,12 +23,12 @@ function ImageGallery() {
       alt: "Poolside luxury setting with pink rose arrangements"
     },
     {
-      src: "/images/cropped-evening-wreath-arrangements.jpg",
-      alt: "Evening pool with elegant wreath arrangements"
-    },
-    {
       src: "/images/rose-halo-party.jpg",
       alt: "Party with rose halo floating arrangement"
+    },
+    {
+      src: "/images/wedding nice.jpg",
+      alt: "Beautiful wedding with floating arrangements"
     }
   ];
 
@@ -45,7 +41,7 @@ function ImageGallery() {
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
         setIsTransitioning(false);
-      }, 300);
+      }, 600);
     }
   };
 
@@ -57,7 +53,7 @@ function ImageGallery() {
           prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
         setIsTransitioning(false);
-      }, 300);
+      }, 600);
     }
   };
 
@@ -67,7 +63,7 @@ function ImageGallery() {
       setTimeout(() => {
         setCurrentIndex(index);
         setIsTransitioning(false);
-      }, 300);
+      }, 600);
     }
   };
 
@@ -75,7 +71,7 @@ function ImageGallery() {
     <div className="relative">
       {/* Main Image Container */}
       <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
-        <div className={`absolute inset-0 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
@@ -138,14 +134,14 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
+          <div className="flex justify-between items-center h-28">
             <a href="#" className="flex items-center">
               <Image
                 src="/images/Main_Logo.png"
                 alt="Floating Arrangements - Elevate Your Waterscape"
-                width={280}
-                height={84}
-                className="h-20 w-auto"
+                width={350}
+                height={105}
+                className="h-25 w-auto"
                 priority
               />
             </a>
@@ -163,8 +159,8 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-party-artistic.jpg"
-            alt="Elegant event with floating arrangements and artistic pieces"
+            src="/images/hero-event.jpg"
+            alt="Elegant evening event with floating arrangements"
             fill
             className="object-cover"
             priority
