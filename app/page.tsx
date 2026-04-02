@@ -11,8 +11,8 @@ function ImageGallery() {
       alt: "Wedding ceremony with floating rose arrangement in pool"
     },
     {
-      src: "/images/nice-event.jpg",
-      alt: "Elegant event with floating arrangements"
+      src: "/images/corporate 1.png",
+      alt: "Corporate event with floating arrangements"
     },
     {
       src: "/images/daytime-lily-arrangements.jpg",
