@@ -313,7 +313,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/modern-home-pool.jpg"
+                  src="/images/sleek 1.jpg"
                   alt="Home and garden floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
