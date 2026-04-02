@@ -15,8 +15,8 @@ function ImageGallery() {
       alt: "Elegant event with floating arrangements"
     },
     {
-      src: "/images/party-artistic-pieces.jpg",
-      alt: "Party with artistic floating pieces and arrangements"
+      src: "/images/cropped-corporate-event-colorful.jpg",
+      alt: "Corporate event with colorful floating arrangements"
     },
     {
       src: "/images/daytime-lily-arrangements.jpg",
@@ -25,6 +25,10 @@ function ImageGallery() {
     {
       src: "/images/poolside-pink-roses.jpg",
       alt: "Poolside luxury setting with pink rose arrangements"
+    },
+    {
+      src: "/images/cropped-evening-wreath-arrangements.jpg",
+      alt: "Evening pool with elegant wreath arrangements"
     },
     {
       src: "/images/rose-halo-party.jpg",
@@ -38,26 +42,32 @@ function ImageGallery() {
   const goToNext = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      setTimeout(() => setIsTransitioning(false), 500);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setIsTransitioning(false);
+      }, 300);
     }
   };
 
   const goToPrevious = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => 
-        prevIndex === 0 ? images.length - 1 : prevIndex - 1
-      );
-      setTimeout(() => setIsTransitioning(false), 500);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+        setIsTransitioning(false);
+      }, 300);
     }
   };
 
   const goToSlide = (index: number) => {
     if (!isTransitioning && index !== currentIndex) {
       setIsTransitioning(true);
-      setCurrentIndex(index);
-      setTimeout(() => setIsTransitioning(false), 500);
+      setTimeout(() => {
+        setCurrentIndex(index);
+        setIsTransitioning(false);
+      }, 300);
     }
   };
 
@@ -65,7 +75,7 @@ function ImageGallery() {
     <div className="relative">
       {/* Main Image Container */}
       <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
-        <div className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
@@ -123,124 +133,29 @@ function ImageGallery() {
 }
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    inquiryType: 'Event Decor',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xkgpjlbo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        // Clear the form
-        setFormData({
-          name: '',
-          email: '',
-          inquiryType: 'Event Decor',
-          message: ''
-        });
-        alert('Thank you for your inquiry! We will get back to you soon.');
-      } else {
-        alert('There was an error sending your message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('There was an error sending your message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
+      <nav className="fixed w-full bg-stone-50/98 backdrop-blur-sm z-50 shadow-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
+          <div className="flex justify-between items-center h-24">
             <a href="#" className="flex items-center">
               <Image
-                src="/images/Cropped_Main_Logo_High_Res.png"
-                alt="Floating Arrangements"
-                width={1440}
-                height={720}
-                className="h-20 md:h-28 w-auto"
+                src="/images/Main_Logo.png"
+                alt="Floating Arrangements - Elevate Your Waterscape"
+                width={280}
+                height={84}
+                className="h-20 w-auto"
                 priority
               />
             </a>
-            
-            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-stone-600 hover:text-stone-900 transition">Services</a>
               <a href="#portfolio" className="text-stone-600 hover:text-stone-900 transition">Portfolio</a>
+              <a href="#testimonials" className="text-stone-600 hover:text-stone-900 transition">Testimonials</a>
               <a href="#contact" className="text-stone-600 hover:text-stone-900 transition">Contact</a>
             </div>
-
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-stone-600 hover:text-stone-900 transition"
-              aria-label="Toggle menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
           </div>
-
-          {/* Mobile Menu Dropdown */}
-          {isMenuOpen && (
-            <div className="md:hidden pb-4">
-              <div className="flex flex-col space-y-3">
-                <a 
-                  href="#services" 
-                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Services
-                </a>
-                <a 
-                  href="#portfolio" 
-                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Portfolio
-                </a>
-                <a 
-                  href="#contact" 
-                  className="text-stone-600 hover:text-stone-900 transition py-2 px-4 hover:bg-stone-100 rounded"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
 
@@ -248,8 +163,8 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-event.jpg"
-            alt="Elegant event with floating arrangements"
+            src="/images/hero-party-artistic.jpg"
+            alt="Elegant event with floating arrangements and artistic pieces"
             fill
             className="object-cover"
             priority
@@ -292,7 +207,7 @@ export default function Home() {
               <div className="relative h-72 overflow-hidden">
                 <Image
                   src="/images/evening-party-elegant.jpg"
-                  alt="Event decor with elegant floating arrangements"
+                  alt="Event decor with floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
                 />
@@ -313,7 +228,7 @@ export default function Home() {
             <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/modern-home-pool.jpg"
+                  src="/images/sleek 1.jpg"
                   alt="Home and garden floating arrangements"
                   fill
                   className="object-cover group-hover:scale-105 transition duration-500"
@@ -413,6 +328,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-4 bg-stone-50">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl sm:text-5xl font-serif text-center mb-16 text-stone-800">
+            What Our Clients Say
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
+              <div className="mb-4">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Floating Arrangements transformed our wedding reception into a fairytale! The pool was absolutely stunning.
+                Every guest was in awe.&rdquo;
+              </p>
+              <p className="text-stone-900 font-medium">— Sarah & Michael</p>
+              <p className="text-stone-500 text-sm">Wedding Reception</p>
+            </div>
+
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
+              <div className="mb-4">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Our annual garden party has never looked so elegant. The floating florals were the talk of the evening.
+                Simply exquisite!&rdquo;
+              </p>
+              <p className="text-stone-900 font-medium">— Jennifer Thompson</p>
+              <p className="text-stone-500 text-sm">Private Event</p>
+            </div>
+
+            <div className="bg-stone-50 p-8 rounded-lg shadow-md">
+              <div className="mb-4">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              <p className="text-stone-700 mb-6 italic leading-relaxed">
+                &ldquo;Professional, creative, and utterly beautiful. Highly recommend for anyone looking to add that &lsquo;wow&rsquo; factor
+                to their event.&rdquo;
+              </p>
+              <p className="text-stone-900 font-medium">— Robert Chen</p>
+              <p className="text-stone-500 text-sm">Corporate Event</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -423,13 +390,7 @@ export default function Home() {
             Contact us today for a personalized consultation and let us bring your floating vision to life.
           </p>
           <div className="bg-stone-50 rounded-lg p-8 shadow-lg border border-stone-200">
-            <form 
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-              {/* Hidden field for better email subject */}
-              <input type="hidden" name="_subject" value="New Contact Form Inquiry - Floating Arrangements" />
-              
+            <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-stone-700 mb-2">
@@ -438,10 +399,6 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="Your name"
                   />
@@ -453,10 +410,6 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
                     className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                     placeholder="your@email.com"
                   />
@@ -468,9 +421,6 @@ export default function Home() {
                 </label>
                 <select
                   id="inquiryType"
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                 >
                   <option>Event Decor</option>
@@ -485,22 +435,16 @@ export default function Home() {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
                   rows={5}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 rounded border border-stone-300 focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none bg-white"
                   placeholder="Tell us about your vision..."
                 ></textarea>
               </div>
-
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg disabled:bg-amber-400 disabled:cursor-not-allowed"
+                className="w-full bg-amber-700 text-white px-8 py-4 rounded text-lg font-medium hover:bg-amber-800 transition shadow-lg"
               >
-                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                Send Inquiry
               </button>
             </form>
           </div>
@@ -520,9 +464,9 @@ export default function Home() {
                 <Image
                   src="/images/Main_Logo_white.png"
                   alt="Floating Arrangements"
-                  width={324}
-                  height={162}
-                  className="h-27 w-auto"
+                  width={240}
+                  height={120}
+                  className="h-20 w-auto"
                 />
               </div>
               <p className="text-stone-300 leading-relaxed">
@@ -535,6 +479,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><a href="#services" className="text-stone-300 hover:text-white transition">Services</a></li>
                 <li><a href="#portfolio" className="text-stone-300 hover:text-white transition">Portfolio</a></li>
+                <li><a href="#testimonials" className="text-stone-300 hover:text-white transition">Testimonials</a></li>
                 <li><a href="#contact" className="text-stone-300 hover:text-white transition">Contact</a></li>
               </ul>
             </div>
